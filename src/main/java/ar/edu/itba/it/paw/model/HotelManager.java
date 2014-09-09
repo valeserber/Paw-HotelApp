@@ -8,7 +8,6 @@ import java.util.List;
 public class HotelManager {
 
 	private static HotelManager hotelmanager = null;
-	//List<Hotel> hotels= new ArrayList<Hotel>();
 
 	protected HotelManager() {
 		
@@ -20,32 +19,6 @@ public class HotelManager {
 		}
 		return hotelmanager;
 	}
-	
-	/*public void addHotel(Hotel hotel){
-		hotels.add(hotel);
-	}
-	
-	public List<Hotel> getHotelList(){
-		return hotels;
-	}*/
-	
-	/*public void addComment(String comment,String name,String email,String code){
-		Hotel h=getHotel(code);
-		h.addComment(comment,name,email);
-	}*/
-	
-	/*public Hotel getHotel(String code){
-		if(code!="" && code!=null){
-			int c=Integer.parseInt(code);
-
-			for(Hotel h:hotels){
-				if(h.getCode()==c){
-					return h;
-				}
-			}
-		}
-		return null;
-	}*/
 	
 	public void addComment(String comment,String code,String username){
 		String query="INSERT INTO COMMENTS VALUES('"+username+"', "+Integer.valueOf(code)+" ,'"+comment+"');";

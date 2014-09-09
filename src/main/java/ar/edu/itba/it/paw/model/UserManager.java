@@ -8,7 +8,6 @@ import java.sql.Statement;
 public class UserManager {
 	
 	private static UserManager usermanager = null;
-	//List<User> registered_users= new ArrayList<User>();
 
 	protected UserManager() {
 		
@@ -21,38 +20,6 @@ public class UserManager {
 		return usermanager;
 	}
 	
-	/*
-	public boolean isRegistered(String user,String pass){
-		for(User u:registered_users){
-			if(u.getName().equals(user)){
-				if(u.getPass().equals(pass)){
-					return true;
-				}
-				return false;
-			}
-		}
-		return false;
-	}
-	
-	
-	public User getUser(String username){
-		//en realidad ya sabemos que username!=null porque lo checkea el filtro
-		//pero por las dudas lo pongo
-		if(username!=null){
-			for(User u:registered_users){
-				if(u.getName().equals(username)){
-					return u;
-				}
-			}
-			return null;
-		}
-		return null;
-	}
-	
-	public void addUser(User user){
-		registered_users.add(user);
-	}
-	*/
 	public void addUser(String name, String email,String pass){
 		User user=new User(name,email,pass);
 		addUser(user);

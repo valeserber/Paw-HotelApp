@@ -28,37 +28,14 @@ public class Register extends HttpServlet{
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 				throws ServletException, IOException {
-			
-			/*PrintWriter out=resp.getWriter();
-			out.println("<html><body>");*/
-			
-			/*String data=req.getParameter("authentication");
-			if(data!=null){
-				if(data.equals("false")){
-					out.println("<strong>Ese usuario ya existe</strong><br>");
-				}
-			}*/
-			
+		
 			HttpSession session = req.getSession();
 			Boolean aux=(Boolean) session.getAttribute("authentication");
 			if(aux==null){
 				aux=true;
 			}	
 			session.setAttribute("authentication", aux);
-			
 			req.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(req, resp);
-			
-			/*out.println("<h1>Registro</h1><br>");
-			out.println("<br><form action=\"/HotelApp/register\" method=\"POST\">");
-			out.println("Usuario: ");
-			out.println("<input type=\"text\" name=\"user\"><br>");
-			out.println("Contrasenia: ");
-			out.println("<input type=\"password\" name=\"pass\"><br>");
-			out.println("Email: ");
-			out.println("<input type=\"text\" name=\"email\"><br>");
-			out.println("<input type=\"submit\" value=\"Enviar\" >");
-			out.println("</form><br>");
-			out.println("</body></html>");*/
 		}
 
 		@Override
@@ -69,7 +46,6 @@ public class Register extends HttpServlet{
 			String email= req.getParameter("email");
 			HttpSession session = req.getSession();
 			if(um.exists(user)){
-				//resp.sendRedirect("/HotelApp/register?authentication=false");	
 				resp.sendRedirect("/HotelApp/register");	
 				session.setAttribute("authentication", false);
 			}
