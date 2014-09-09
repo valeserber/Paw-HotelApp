@@ -12,15 +12,10 @@
 	</head>
 	
 	<body>
-		<% Boolean aux= (Boolean)session.getAttribute( "authentication"); 
-			if(!aux){
-		%>
+		<c:if test="${sessionScope.authentication == false}">
 			<strong>Los datos ingresados son incorrectos</strong><br>
-		<%
-		}
-		%>
-		
-		
+		</c:if>
+
 		<h1>Ingrese al sitio</h1>
 		<br>
 		<form action="/HotelApp/login" method="POST">
